@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://fastly.jsdelivr.net'>
+  <link rel="preconnect" href="https://fastly.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>matlab的使用 - Deedy</title>
+
+  
+    <meta name="description" content="matlab基础0 matlab中没有第0行，第0列一说 y &#x3D; 1:10 &#x2F;&#x2F; 间隔1 a &#x3D; 3:2:13 &#x2F;&#x2F; 间隔2 b &#x3D; linspace(1,10,5) &#x2F;&#x2F; 5个元素x &#x3D; data(6,3) &#x2F;&#x2F; 6th row  3th column A &#x3D; [5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="matlab的使用">
+<meta property="og:url" content="http://example.com/2022/09/26/matlab%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Deedy">
+<meta property="og:description" content="matlab基础0 matlab中没有第0行，第0列一说 y &#x3D; 1:10 &#x2F;&#x2F; 间隔1 a &#x3D; 3:2:13 &#x2F;&#x2F; 间隔2 b &#x3D; linspace(1,10,5) &#x2F;&#x2F; 5个元素x &#x3D; data(6,3) &#x2F;&#x2F; 6th row  3th column A &#x3D; [5">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-26-11-37-55.png">
+<meta property="og:image" content="http://example.com/photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-07-23-55.png">
+<meta property="og:image" content="http://example.com/photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-07-39-58.png">
+<meta property="og:image" content="http://example.com/photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-08-24-21.png">
+<meta property="og:image" content="http://example.com/photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-22-01-08.png">
+<meta property="og:image" content="http://example.com/photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-22-41-23.png">
+<meta property="og:image" content="http://example.com/photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-22-42-20.png">
+<meta property="og:image" content="http://example.com/photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-22-44-11.png">
+<meta property="og:image" content="http://example.com/photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-23-08-46.png">
+<meta property="og:image" content="http://example.com/photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-23-17-20.png">
+<meta property="og:image" content="http://example.com/photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-23-17-40.png">
+<meta property="og:image" content="http://example.com/photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-23-21-10.png">
+<meta property="article:published_time" content="2022-09-26T02:56:53.000Z">
+<meta property="article:modified_time" content="2022-09-28T04:21:21.326Z">
+<meta property="article:author" content="Deedy Lv">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-26-11-37-55.png">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Deedy</div></a></div>
+<nav class="menu dis-select"><a class="nav-item active" href="/">Blog</a><a class="nav-item" href="/wiki/">Wiki</a><a class="nav-item" href="/notes/">笔记</a><a class="nav-item" href="/more/">更多</a><a class="nav-item" href="/MyProfile/">个人简介</a></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">TOC</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Generating-Signals"><span class="toc-text">Generating Signals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Import-signals"><span class="toc-text">Import signals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Preprocess-signals"><span class="toc-text">Preprocess signals</span></a></li></ol></div></div></div>
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2022-09-26T02:56:53.000Z">2022-09-26</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>matlab的使用</span></h1>
+<h1 id="matlab基础0"><a href="#matlab基础0" class="headerlink" title="matlab基础0"></a>matlab基础0</h1><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/../photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-26-11-37-55.png"></p>
+<p>matlab中没有第0行，第0列一说</p>
+<p>y &#x3D; 1:10 &#x2F;&#x2F; 间隔1</p>
+<p>a &#x3D; 3:2:13 &#x2F;&#x2F; 间隔2</p>
+<p>b &#x3D; linspace(1,10,5) &#x2F;&#x2F; 5个元素<br>x &#x3D; data(6,3) &#x2F;&#x2F; 6th row  3th column</p>
+<p>A &#x3D; [5 6; 7 8]<br>A(3) &#x2F;&#x2F; 以列的方式获取第三个元素</p>
+<p>density &#x3D; data(:,2) &#x2F;&#x2F; 第二列</p>
+<p>volumes &#x3D; data(:,3:4) &#x2F;&#x2F; 获取3 4列</p>
+<p>p &#x3D; density(2:5) &#x2F;&#x2F; 单列数组，返回2，5区间的数组</p>
+<p>v2(1) &#x3D; 0.5 &#x2F;&#x2F; 数组的第一个元素</p>
+<p>data(1,end) &#x3D; 0.5 &#x2F;&#x2F; 改变第一行，最后一列的元素</p>
+<p>mass &#x3D; density .* va &#x2F;&#x2F; 点积</p>
+<p>x &#x3D; randi(20,[5,7]) &#x2F;&#x2F; 获取1-20的随机数的5行7列的数组<br>doc randi &#x2F;&#x2F; 查阅文档</p>
+<p>画图：<br>plot(sample,mass1)  &#x2F;&#x2F; 把sample作为x轴，mass1作为y轴<br>plot(x,y,”r–o”) &#x2F;&#x2F; 红虚线 + 圈<br>plot(sample,mass2,”r*”) &#x2F;&#x2F; 红* 无线</p>
+<p>hold on<br>plot(sample,mass1, “ks”)  &#x2F;&#x2F; 这根线加在上面那根线的图中<br>hold off &#x2F;&#x2F; 接下来的作图会出现在另一个图中<br>plot(v1,”LineWidth”,3) &#x2F;&#x2F; “3”粗的线<br>plot(sample,v1,”ro-“,”LineWidth”,4)</p>
+<p>title(“Sample Mass”) &#x2F;&#x2F; 标题<br>ylabel(“Mass (g)”) &#x2F;&#x2F; 纵轴label<br>legend(“Exp A”,”Exp B”) &#x2F;&#x2F; 图示说明<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/../photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-07-23-55.png"></p>
+<p>elements.Mass &#x3D; elements.Density.*elements.Volume1<br>elements &#x3D; sortrows(elements, “Mass”) &#x2F;&#x2F; 从小到大排序<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/../photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-07-39-58.png"></p>
+<p>load datafile<br>sample &#x3D; data(:,1);<br>v1 &#x3D; data(:,3);</p>
+<p>z &#x3D; v1(v1 &lt; 4) &#x2F;&#x2F; 找出v1中小于4的所有元素<br>a &#x3D; sample(v1 &lt; 4) &#x2F;&#x2F; 找出sample中的元素，对应于v1小于4的索引位置<br>v1(v1&lt;4) &#x3D; 0 &#x2F;&#x2F; Modify v1 so that any value less than 4 is replaced with the value 0.</p>
+<p>doPlot &#x3D; randi([0 1]) &#x2F;&#x2F; 0 or 1</p>
+<p>for idx &#x3D; 1:length(density)<br>    hold on<br>    plot(idx,density(idx),”*”) &#x2F;&#x2F; 单点， 纵坐标会发生变化<br>    hold off<br>    pause(1)<br>end<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/../photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-08-24-21.png"></p>
+<p>plot(lambdaHa,sHa,”rs”,”MarkerSize”,8)<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/../photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-22-01-08.png"></p>
+<hr>
+<p>[sHa,idx] &#x3D; min(spectra);<br>lambdaHa &#x3D; lambda(idx);<br>z &#x3D; lambdaHa&#x2F;656.28 - 1;<br>speed &#x3D; z*299792.458</p>
+<p>for v &#x3D; 1:7<br>    s &#x3D; spectra(:,v)<br>    if speed(v) &lt;&#x3D; 0<br>        plot(lambda,s,”–”)<br>    else<br>        plot(lambda,s,”LineWidth”,3)<br>    end<br>    hold on<br>end</p>
+<p>hold off</p>
+<p>legend(starnames)<br>movaway &#x3D; starnames(speed &gt; 0)  &#x2F;&#x2F; 找出speed&gt;0的索引对应的starname</p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/../photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-22-41-23.png"><br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/../photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-22-42-20.png"><br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/../photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-22-44-11.png"></p>
+<h1 id="matlab基础1"><a href="#matlab基础1" class="headerlink" title="matlab基础1"></a>matlab基础1</h1><h1 id="Signal-Processing-Onramp"><a href="#Signal-Processing-Onramp" class="headerlink" title="Signal Processing Onramp"></a>Signal Processing Onramp</h1><h2 id="Generating-Signals"><a href="#Generating-Signals" class="headerlink" title="Generating Signals"></a>Generating Signals</h2><p>fs &#x3D; 100<br>t &#x3D; 0:1&#x2F;fs:1</p>
+<p>sig &#x3D; sin(2<em>pi</em>5*t)<br>plot(t,sig)<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/../photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-23-08-46.png"></p>
+<p>noise &#x3D; 0.1*randn(size(sig))</p>
+<p>sigNoisy &#x3D; noise + sig<br>plot(t,sigNoisy)<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/../photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-23-17-20.png"></p>
+<p>sq &#x3D; square(2<em>pi</em>5*t)<br>plot(t,sq)<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/../photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-23-17-40.png"></p>
+<p>信号处理的工作流<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/../photo/matlab%E7%9A%84%E4%BD%BF%E7%94%A8_2022-09-27-23-21-10.png"></p>
+<h2 id="Import-signals"><a href="#Import-signals" class="headerlink" title="Import signals"></a>Import signals</h2><h2 id="Preprocess-signals"><a href="#Preprocess-signals" class="headerlink" title="Preprocess signals"></a>Preprocess signals</h2>
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>READ NEXT</span></section><section class="body fs14"><a id="next" href="/2022/09/24/webrtc%E4%B8%AD%E4%BD%BF%E7%94%A8%E7%9A%84%E7%9B%B8%E5%85%B3%E6%8A%80%E6%9C%AF/">webrtc中使用的相关技术<span class="note">Older</span></a><div class="line"></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>This site was deployed by <a href="http://example.com/">@Deedy Lv</a> using <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.9.0" title="v1.9.0">Stellar</a>.</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.9.0';
+  stellar.config = {
+    date_suffix: {
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://fastly.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://fastly.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://fastly.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://fastly.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://fastly.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
